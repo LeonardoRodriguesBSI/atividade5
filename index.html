@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletim Epidemiológico - COVID-19</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .data {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .numero {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .casos {
+            color: #f00;
+        }
+
+        .recuperados {
+            color: #0c0;
+        }
+
+        .mortes {
+            color: #333;
+        }
+
+        #chart-container {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Boletim Epidemiológico - COVID-19</h1>
+        <div class="data">Data: 30 de Junho de 2022</div>
+        <div class="numero casos">Casos Confirmados: <span class="numero">100.000</span></div>
+        <div class="numero recuperados">Recuperados: <span class="numero">90.000</span></div>
+        <div class="numero mortes">Mortes: <span class="numero">5.000</span></div>
+        
+        <div id="chart-container">
+            <canvas id="mortes-chart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        var ctx = document.getElementById("mortes-chart").getContext("2d");
+        var mortesChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
+                datasets: [{
+                    label: "Mortes por COVID-19",
+                    data: [100, 150, 200, 250, 300, 350],
+                    backgroundColor: "rgba(255, 99, 132, 0.7)",
+                    borderColor: "rgba(255, 99, 132, 1)",
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
